@@ -39,4 +39,25 @@ document.addEventListener('DOMContentLoaded', function() {
         const walk = (x - startX) * 2;
         carousel.scrollLeft = scrollLeft - walk;
     });
+});
+
+// אנימציית הקלדה לטקסט handwrite-type
+window.addEventListener('DOMContentLoaded', function() {
+    const typeTarget = document.getElementById('typewriter-text');
+    if (!typeTarget) return;
+    const fullText = typeTarget.innerHTML.replace(/<br>/g, '\n');
+    typeTarget.innerHTML = '';
+    let i = 0;
+    function typeWriter() {
+        if (i < fullText.length) {
+            if (fullText[i] === '\n') {
+                typeTarget.innerHTML += '<br>';
+            } else {
+                typeTarget.innerHTML += fullText[i];
+            }
+            i++;
+            setTimeout(typeWriter, 28);
+        }
+    }
+    typeWriter();
 }); 

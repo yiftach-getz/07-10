@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Assistant', sans-serif;
-    background-color: #000000;
+    background-color: #111;
     color: #ffffff;
     direction: rtl;
 }
@@ -14,7 +14,7 @@ body {
 .hero {
     text-align: center;
     padding: 50px 20px;
-    background-color: #1a1a1a;
+    background-color: #111;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,14 +41,21 @@ body {
 }
 
 .book-cover {
-    max-width: 300px;
-    margin: 20px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s;
+    max-width: 380px;
+    width: 100%;
+    margin: 32px auto 0 auto;
+    display: block;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.7), 0 1.5px 8px rgba(255,255,255,0.08);
+    border-radius: 16px;
+    transform: rotate(-6deg) scale(1.08);
+    background: linear-gradient(120deg, #fff 60%, #e0e0e0 100%);
+    transition: transform 0.4s cubic-bezier(.4,2,.6,1), box-shadow 0.4s;
+    margin-bottom: 80px;
 }
 
 .book-cover:hover {
-    transform: scale(1.05);
+    transform: rotate(-2deg) scale(1.13);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.85);
 }
 
 .cta-button {
@@ -79,7 +86,7 @@ body {
     gap: 32px;
     padding: 40px 20px;
     text-align: center;
-    background-color: #1a1a1a;
+    background-color: #111;
 }
 
 .excerpt {
@@ -240,4 +247,114 @@ iframe {
         width: 90%;
         max-width: 500px;
     }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+
+@font-face {
+    font-family: 'OH_UriahMash';
+    src: url('./OH_UriahMash/Web/OHUriyahMash-Regular.woff2') format('woff2'),
+         url('./OH_UriahMash/Web/OHUriyahMash-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.handwrite-type {
+    font-family: 'OH_UriahMash', cursive;
+    font-size: 2em;
+    color: #fff;
+    margin: 32px auto 0 auto;
+    max-width: 650px;
+    text-align: center;
+    line-height: 1;
+    letter-spacing: 0.03em;
+    min-height: 320px;
+    direction: rtl;
+    background: none;
+    white-space: pre-line;
+}
+
+#typewriter-text {
+    border-left: 2px solid #ffe6b3;
+    padding-left: 4px;
+    animation: blink-caret 0.8s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #ffe6b3; }
+}
+
+.about-me {
+    background: #181818;
+    color: #fff;
+    padding: 48px 20px 56px 20px;
+    text-align: center;
+    margin-top: 48px;
+    border-radius: 18px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+}
+.about-me h2 {
+    font-size: 2em;
+    margin-bottom: 18px;
+    color: #fff;
+    font-family: inherit;
+}
+.about-me p {
+    font-size: 1.2em;
+    line-height: 1.7;
+    color: #ffe6b3;
+    font-family: 'Assistant', Arial, sans-serif;
+}
+
+.main-title {
+    font-size: 3.2em;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.1em;
+    letter-spacing: 0.01em;
+}
+.subtitle-block {
+    text-align: center;
+    margin-bottom: 18px;
+}
+.big-bordo {
+    color: #8B1A1A;
+    font-size: 4em;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.1em;
+    line-height: 1.1;
+    display: inline-block;
+    min-width: 1em;
+}
+.sub-white {
+    color: #fff;
+    font-size: 1.7em;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    margin-bottom: 0.5em;
+}
+
+.diary-title {
+    text-align: center;
+    color: #fff;
+    font-size: 2.4em;
+    font-weight: bold;
+    margin-bottom: 32px;
+    letter-spacing: 0.01em;
+}
+
+.diary-excerpts-section {
+    width: 100%;
+    margin: 0 auto 48px auto;
+    padding: 0 0 0 0;
+}
+
+.hero, .diary-excerpts, .gallery, .video, .whatsapp-group, .lectures, .cta, .about-me, .diary-excerpts-section {
+    background-color: #111 !important;
 } 
