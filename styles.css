@@ -259,6 +259,10 @@ iframe {
     font-style: normal;
 }
 
+.handwrite-type, .handwrite-type br {
+    line-height: 1 !important;
+}
+
 .handwrite-type {
     font-family: 'OH_UriahMash', cursive;
     font-size: 2em;
@@ -266,7 +270,6 @@ iframe {
     margin: 32px auto 0 auto;
     max-width: 650px;
     text-align: center;
-    line-height: 1;
     letter-spacing: 0.03em;
     min-height: 320px;
     direction: rtl;
@@ -357,4 +360,90 @@ iframe {
 
 .hero, .diary-excerpts, .gallery, .video, .whatsapp-group, .lectures, .cta, .about-me, .diary-excerpts-section {
     background-color: #111 !important;
+}
+
+.diary-page {
+    background: #111;
+    color: #fff;
+    min-height: 100vh;
+    padding: 60px 20px 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.diary-page h1 {
+    font-size: 2.5em;
+    margin-bottom: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+.diary-full-text {
+    max-width: 700px;
+    font-size: 1.3em;
+    line-height: 1.7;
+    margin-bottom: 48px;
+    text-align: center;
+}
+.diary-page .cta-button {
+    margin-top: 16px;
+    align-self: center;
+}
+
+.diary-img {
+    max-width: 520px;
+    width: 100%;
+    display: block;
+    margin: 0 auto 36px auto;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+}
+
+.swiper {
+    width: 100%;
+    padding: 20px 0;
+    direction: rtl;
+}
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+.swiper-slide img {
+    width: 220px;
+    max-width: 90vw;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px solid #fff;
+}
+.swiper-slide img:hover {
+    transform: scale(1.08) rotate(-2deg);
+    box-shadow: 0 8px 32px rgba(255,0,0,0.25), 0 4px 16px rgba(0,0,0,0.7);
+    border-color: #ff0000;
+}
+.swiper-button-next, .swiper-button-prev {
+    color: #ff0000;
+    background: rgba(0,0,0,0.3);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.swiper-pagination-bullet {
+    background: #fff;
+    opacity: 0.7;
+}
+.swiper-pagination-bullet-active {
+    background: #ff0000;
+    opacity: 1;
+}
+@media (max-width: 700px) {
+    .swiper-slide img {
+        width: 90vw;
+        max-width: 98vw;
+    }
 } 

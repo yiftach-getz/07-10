@@ -6,6 +6,8 @@
     <title>07:10 – האדמה תספר הכל</title>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
     <header class="hero">
@@ -73,12 +75,19 @@
 
     <section class="gallery">
         <h2>גלריית תמונות</h2>
-        <div class="carousel">
-            <img src="IMAEGE/IMAEGE1.jpeg" alt="תמונה 1">
-            <img src="IMAEGE/2.jpg.jpeg" alt="תמונה 2">
-            <img src="IMAEGE/3.jpg.jpeg" alt="תמונה 3">
-            <img src="IMAEGE/4.jpg.jpeg" alt="תמונה 4">
-            <img src="IMAEGE/WhatsApp Image 2025-04-28 at 23.34.01.jpeg" alt="תמונה 5">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="IMAEGE/IMAEGE1.jpeg" alt="לוחם משוחח עם חייל בנמר" loading="lazy"></div>
+                <div class="swiper-slide"><img src="IMAEGE/2.jpg.jpeg" alt="תמונה מהשטח 2" loading="lazy"></div>
+                <div class="swiper-slide"><img src="IMAEGE/3.jpg.jpeg" alt="תמונה מהשטח 3" loading="lazy"></div>
+                <div class="swiper-slide"><img src="IMAEGE/4.jpg.jpeg" alt="תמונה מהשטח 4" loading="lazy"></div>
+                <div class="swiper-slide"><img src="IMAEGE/WhatsApp Image 2025-04-28 at 23.34.01.jpeg" alt="תמונה קבוצתית" loading="lazy"></div>
+            </div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
         </div>
     </section>
 
@@ -125,6 +134,26 @@
         </p>
     </section>
 
-    <script src="script.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper('.swiper', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          700: { slidesPerView: 2 },
+          1100: { slidesPerView: 3 }
+        }
+      });
+    </script>
 </body>
 </html> 
