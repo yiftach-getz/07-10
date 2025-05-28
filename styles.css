@@ -534,4 +534,58 @@ iframe {
     font-size: 1.3em;
     padding: 10px 12px;
   }
+}
+
+.contact-section {
+  background: #181818;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+  max-width: 480px;
+  margin: 64px auto 32px auto;
+  padding: 36px 24px 28px 24px;
+  border: 2px solid #fff;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.contact-form label {
+  color: #ffe6b3;
+  font-size: 1.05em;
+  margin-bottom: 2px;
+  font-weight: 500;
+}
+.contact-form input,
+.contact-form textarea {
+  border: 1.5px solid #fff;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 1.1em;
+  background: #222;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #8B1A1A;
+  box-shadow: 0 4px 16px rgba(139,26,26,0.12);
+}
+.contact-form textarea {
+  resize: vertical;
+  min-height: 60px;
+  max-height: 200px;
+}
+@media (max-width: 600px) {
+  .contact-section {
+    padding: 18px 6px 18px 6px;
+    max-width: 98vw;
+  }
 } 
