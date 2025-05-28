@@ -482,4 +482,18 @@ iframe {
         width: 48px;
         max-width: 30vw;
     }
+}
+
+.gallery {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.video {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 } 
