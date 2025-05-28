@@ -508,7 +508,7 @@ iframe {
     font-size: 2.1em;
     font-weight: bold;
     box-shadow: 0 4px 18px rgba(0,0,0,0.25);
-    margin-bottom: 38px;
+    margin: 48px auto 38px auto;
     letter-spacing: 0.01em;
     text-align: center;
 }
@@ -527,4 +527,11 @@ iframe {
     color: #fff;
     box-shadow: 0 6px 24px rgba(139,26,26,0.25), 0 4px 18px rgba(0,0,0,0.25);
     outline: none;
+}
+
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 1.3em;
+    padding: 10px 12px;
+  }
 } 
