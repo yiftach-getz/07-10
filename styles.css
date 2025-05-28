@@ -514,4 +514,17 @@ iframe {
 }
 .gallery h2, .video h2 {
     margin-bottom: 38px;
+}
+
+.gallery-link {
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.gallery-link:hover, .gallery-link:focus {
+    border-color: #fff;
+    background: #8B1A1A;
+    color: #fff;
+    box-shadow: 0 6px 24px rgba(139,26,26,0.25), 0 4px 18px rgba(0,0,0,0.25);
+    outline: none;
 } 

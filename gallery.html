@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>גלריית תמונות - 07:10 האדמה תספר הכל</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { background: #111; color: #fff; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 28px;
+      max-width: 1200px;
+      margin: 48px auto 32px auto;
+      padding: 0 16px;
+    }
+    .gallery-grid img {
+      width: 100%;
+      max-width: 340px;
+      border-radius: 18px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+      border: 2.5px solid #fff;
+      background: #181818;
+      transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.06) rotate(-2deg);
+      box-shadow: 0 8px 32px rgba(255,0,0,0.18), 0 4px 18px rgba(0,0,0,0.45);
+      border-color: #8B1A1A;
+    }
+    .gallery-title {
+      display: inline-block;
+      padding: 14px 40px;
+      border: 3px solid #8B1A1A;
+      border-radius: 32px;
+      background: #181818;
+      color: #fff;
+      font-size: 2.3em;
+      font-weight: bold;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+      margin: 48px auto 36px auto;
+      letter-spacing: 0.01em;
+      text-align: center;
+      display: block;
+    }
+    .back-btn {
+      display: inline-block;
+      margin: 40px auto 32px auto;
+      padding: 12px 32px;
+      background: #8B1A1A;
+      color: #fff;
+      border: 2px solid #fff;
+      border-radius: 24px;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+    .back-btn:hover {
+      background: #a83232;
+      color: #fff;
+      box-shadow: 0 4px 24px rgba(139,26,26,0.18);
+    }
+  </style>
+</head>
+<body>
+  <h1 class="gallery-title">גלריית תמונות</h1>
+  <div class="gallery-grid">
+    <a href="IMAEGE/logo.jpg.png" target="_blank"><img src="IMAEGE/logo.jpg.png" alt="לוגו האתר" loading="lazy"></a>
+    <a href="חזית ושדרה.jpg" target="_blank"><img src="חזית ושדרה.jpg" alt="כריכת הספר" loading="lazy"></a>
+    <a href="IMAEGE/IMAEGE1.jpeg" target="_blank"><img src="IMAEGE/IMAEGE1.jpeg" alt="לוחם משוחח עם חייל בנמר" loading="lazy"></a>
+    <a href="IMAEGE/3.jpg.jpeg" target="_blank"><img src="IMAEGE/3.jpg.jpeg" alt="תמונה מהשטח 3" loading="lazy"></a>
+    <a href="IMAEGE/20240414_221845.jpg" target="_blank"><img src="IMAEGE/20240414_221845.jpg" alt="תמונה 20240414_221845" loading="lazy"></a>
+    <a href="IMAEGE/2.jpg.jpeg" target="_blank"><img src="IMAEGE/2.jpg.jpeg" alt="תמונה מהשטח 2" loading="lazy"></a>
+    <a href="IMAEGE/20231016_175844.jpg" target="_blank"><img src="IMAEGE/20231016_175844.jpg" alt="תמונה 20231016_175844" loading="lazy"></a>
+    <a href="IMAEGE/20231210_165146.jpg" target="_blank"><img src="IMAEGE/20231210_165146.jpg" alt="תמונה 20231210_165146" loading="lazy"></a>
+    <a href="IMAEGE/20231210_165155.jpg" target="_blank"><img src="IMAEGE/20231210_165155.jpg" alt="תמונה 20231210_165155" loading="lazy"></a>
+    <a href="IMAEGE/20240414_222718.jpg" target="_blank"><img src="IMAEGE/20240414_222718.jpg" alt="תמונה 20240414_222718" loading="lazy"></a>
+    <a href="IMAEGE/20240101_145453.jpg" target="_blank"><img src="IMAEGE/20240101_145453.jpg" alt="תמונה 20240101_145453" loading="lazy"></a>
+    <a href="IMAEGE/20231009_183936.jpg" target="_blank"><img src="IMAEGE/20231009_183936.jpg" alt="תמונה 20231009_183936" loading="lazy"></a>
+    <a href="IMAEGE/20240702_065729.jpg" target="_blank"><img src="IMAEGE/20240702_065729.jpg" alt="תמונה 20240702_065729" loading="lazy"></a>
+    <a href="IMAEGE/20231016_162109.jpg" target="_blank"><img src="IMAEGE/20231016_162109.jpg" alt="תמונה 20231016_162109" loading="lazy"></a>
+    <a href="IMAEGE/20240604_192131.jpg" target="_blank"><img src="IMAEGE/20240604_192131.jpg" alt="תמונה 20240604_192131" loading="lazy"></a>
+    <a href="IMAEGE/20231212_103353.jpg" target="_blank"><img src="IMAEGE/20231212_103353.jpg" alt="תמונה 20231212_103353" loading="lazy"></a>
+    <a href="IMAEGE/20240704_111626.jpg" target="_blank"><img src="IMAEGE/20240704_111626.jpg" alt="תמונה 20240704_111626" loading="lazy"></a>
+    <a href="IMAEGE/20240101_162410.jpg" target="_blank"><img src="IMAEGE/20240101_162410.jpg" alt="תמונה 20240101_162410" loading="lazy"></a>
+    <a href="IMAEGE/20231016_180130.jpg" target="_blank"><img src="IMAEGE/20231016_180130.jpg" alt="תמונה 20231016_180130" loading="lazy"></a>
+    <a href="IMAEGE/20231210_165020.jpg" target="_blank"><img src="IMAEGE/20231210_165020.jpg" alt="תמונה 20231210_165020" loading="lazy"></a>
+    <a href="IMAEGE/1000444082-01.jpeg" target="_blank"><img src="IMAEGE/1000444082-01.jpeg" alt="תמונה 1000444082-01" loading="lazy"></a>
+    <a href="IMAEGE/4.jpg.jpeg" target="_blank"><img src="IMAEGE/4.jpg.jpeg" alt="תמונה מהשטח 4" loading="lazy"></a>
+    <a href="IMAEGE/WhatsApp Image 2025-04-28 at 23.34.01.jpeg" target="_blank"><img src="IMAEGE/WhatsApp Image 2025-04-28 at 23.34.01.jpeg" alt="תמונה קבוצתית" loading="lazy"></a>
+    <a href="IMAEGE/20240702_065519.jpg" target="_blank"><img src="IMAEGE/20240702_065519.jpg" alt="תמונה 20240702_065519" loading="lazy"></a>
+  </div>
+  <a href="index.html" class="back-btn">חזרה לעמוד הראשי</a>
+</body>
+</html> 
