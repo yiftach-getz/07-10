@@ -177,7 +177,7 @@
 
     <!-- Contact Form -->
     <section class="contact-section">
-      <form id="lead-form" action="#" method="POST" class="contact-form">
+      <form action="https://formspree.io/f/xeogyzzv" method="POST" class="contact-form">
         <h2 class="section-title" style="margin-bottom:28px;">צור קשר</h2>
         <div class="form-group">
           <label for="name">שם מלא <span style="color:red">*</span></label>
@@ -225,35 +225,6 @@
           1100: { slidesPerView: 3 }
         }
       });
-    </script>
-    <script>
-    document.getElementById('lead-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var name = document.getElementById('name').value;
-      var email = document.getElementById('email').value;
-      var phone = document.getElementById('phone').value;
-      var message = document.getElementById('message').value;
-      var consent = document.getElementById('consent').checked;
-      if (!consent) {
-        alert('יש לאשר הרשמה כדי לשלוח את הטופס.');
-        return;
-      }
-      fetch('https://hook.eu1.make.com/xvkmq3ajgyog9thvcksifya2nm081g6w', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, phone, message, consent })
-      })
-      .then(function(response) {
-        if (response.ok) {
-          window.location.href = 'thankyou.html';
-        } else {
-          alert('אירעה שגיאה בשליחת הטופס.');
-        }
-      })
-      .catch(function() {
-        alert('אירעה שגיאה בשליחת הטופס.');
-      });
-    });
     </script>
     <script src="script.js"></script>
 </body>
