@@ -177,25 +177,30 @@
 
     <!-- Contact Form -->
     <section class="contact-section">
-      <form action="https://formspree.io/f/xeogyzzv" method="POST" class="contact-form">
-        <input type="hidden" name="_redirect" value="thankyou.html">
+      <form id="lead-form" action="#" method="POST" class="contact-form">
         <h2 class="section-title" style="margin-bottom:28px;">צור קשר</h2>
         <div class="form-group">
-          <label for="name">שם מלא</label>
+          <label for="name">שם מלא <span style="color:red">*</span></label>
           <input type="text" id="name" name="name" required>
         </div>
         <div class="form-group">
-          <label for="email">אימייל</label>
+          <label for="email">אימייל <span style="color:red">*</span></label>
           <input type="email" id="email" name="email" required>
         </div>
         <div class="form-group">
-          <label for="phone">נייד</label>
-          <input type="tel" id="phone" name="phone">
+          <label for="phone">נייד <span style="color:red">*</span></label>
+          <input type="tel" id="phone" name="phone" required>
         </div>
         <div class="form-group">
-          <label for="message">הערות</label>
-          <textarea id="message" name="message" rows="3"></textarea>
+          <label for="message">הערות <span style="color:red">*</span></label>
+          <textarea id="message" name="message" rows="3" required></textarea>
         </div>
+        <div class="form-group">
+          <label for="consent" style="display:flex;align-items:center;gap:8px;">
+            <input type="checkbox" id="consent" name="consent" required style="width:18px;height:18px;"> מאשר הרשמה <span style="color:red">*</span>
+          </label>
+        </div>
+        <div style="color:#ffe6b3; font-size:0.98em; margin-bottom:8px;">* שדה חובה</div>
         <button type="submit" class="cta-button" style="margin-top:18px; font-size:1.2em;">שליחה</button>
       </form>
     </section>
@@ -222,16 +227,31 @@
       });
     </script>
     <script>
-    document.querySelector('.contact-form').addEventListener('submit', function(e) {
-      // שלח ל-Google Sheets במקביל ל-Formspree
+    document.getElementById('lead-form').addEventListener('submit', function(e) {
+      e.preventDefault();
       var name = document.getElementById('name').value;
       var email = document.getElementById('email').value;
       var phone = document.getElementById('phone').value;
       var message = document.getElementById('message').value;
-      fetch('https://script.google.com/macros/s/AKfycbzVOdwDFEvdwEx2vuO2qzdDzWICRAANroLDMnhD4Y3R/exec', {
+      var consent = document.getElementById('consent').checked;
+      if (!consent) {
+        alert('יש לאשר הרשמה כדי לשלוח את הטופס.');
+        return;
+      }
+      fetch('https://hook.eu1.make.com/xvkmq3ajgyog9thvcksifya2nm081g6w', {
         method: 'POST',
-        body: JSON.stringify({name, email, phone, message}),
-        headers: {'Content-Type': 'application/json'}
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, phone, message, consent })
+      })
+      .then(function(response) {
+        if (response.ok) {
+          window.location.href = 'thankyou.html';
+        } else {
+          alert('אירעה שגיאה בשליחת הטופס.');
+        }
+      })
+      .catch(function() {
+        alert('אירעה שגיאה בשליחת הטופס.');
       });
     });
     </script>
