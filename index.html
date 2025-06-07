@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>יומן מלחמה</title>
+    <title>07:10 – האדמה תספר הכל | יומן מלחמה אמיתי מאת יפתח גץ</title>
     <meta name="description" content="יומן מלחמה אמיתי ומטלטל מאת יפתח גץ. עדות אישית מה-7 באוקטובר, עוטף עזה, גבורה, השראה, ולחימה. קטעי יומן, גלריית תמונות, וידאו, רכישת הספר, והצטרפות להרצאות.">
     <meta name="keywords" content="יומן מלחמה, יפתח גץ, האדמה תספר הכל, 07:10, עוטף עזה, חמאס, גבורה, השראה, PTSD, ספרים ישראליים, לוחמים, עדות אישית, הרצאות השראה, 7 באוקטובר">
     <meta property="og:title" content="07:10 – האדמה תספר הכל | יומן מלחמה אמיתי מאת יפתח גץ">
@@ -26,19 +26,20 @@
       .video-background {
         position: relative;
         width: 100vw;
-        height: 60vh;
+        height: auto;
+        max-width: 900px;
+        margin: 0 auto;
+        max-height: 90vh;
         overflow: hidden;
         z-index: 0;
       }
       .video-background video {
-        position: absolute;
-        top: 50%; left: 50%;
-        min-width: 100%; min-height: 100%;
-        width: auto; height: auto;
-        z-index: 1;
-        transform: translate(-50%, -50%);
+        width: 100%;
+        height: auto;
+        max-height: 90vh;
         object-fit: cover;
         filter: brightness(0.7);
+        object-position: center top;
       }
       .video-overlay-text {
         position: absolute;
@@ -53,6 +54,7 @@
         font-weight: bold;
         text-shadow: 0 2px 16px #000;
         pointer-events: none;
+        text-align: center;
       }
       @media (max-width: 700px) {
         .video-background { height: 32vh; }
@@ -63,13 +65,18 @@
 <body>
     <div class="video-background">
         <video id="heroVideo" autoplay loop muted playsinline>
-            <source src="movies/nosirat.mp4" type="video/mp4">
+            <source src="movies/open.mp4" type="video/mp4">
             הדפדפן שלך לא תומך בוידאו.
         </video>
         <div class="video-overlay-text">
-            <!-- כאן אפשר להניח טקסט/כפתורים מעל הוידאו -->
+            <div>
+                <h1 class="main-title" style="margin-bottom:0.2em;">יומן מלחמה</h1>
+                <div class="big-bordo" style="font-size:2.8em;">07:10</div>
+                <div class="sub-white" style="font-size:1.4em;">האדמה תספר הכל</div>
+            </div>
         </div>
     </div>
+
     <header class="hero">
         <h1 class="main-title">יומן מלחמה</h1>
         <div class="subtitle-block">
@@ -84,11 +91,15 @@
             בשעה 07:10<br>
             זה היה הרגע שבו המספרים הסתדרו, אבל העולם התפרק.<br><br>
             קבוצות הטלגרם של חמאס כמו<br>
+            جنين القسام , حركة حماس<br>
             משכו אותי מהבית ללחימה בעוטף. התהום בין תפיסת הפיקוד הבכיר לבין מה שאנחנו,<br>
             הלוחמים, חווים באמת <br>
             נפערה מול עיניי.<br>
           </span>
         </div>
+        <a href="index.html" class="site-logo-link" style="display:block;margin:0 auto 24px auto;position:static;">
+            <img src="IMAEGE/logo.jpg.png" alt="לוגו האתר" class="site-logo" style="width:80px;height:auto;max-width:20vw;">
+        </a>
         <img src="IMAEGE/‎yiftach.jpg.jpg" alt="יפתח גץ - פורטרט" class="yiftach-portrait" style="max-width:220px; width:100%; display:block; margin:24px auto 16px auto; border-radius:16px; box-shadow:0 4px 24px rgba(0,0,0,0.4);">
         <p class="hero-subtitle">
             יפתח גץ היה שם ברגע שבו הכול החל.<br>
@@ -267,57 +278,6 @@
           1100: { slidesPerView: 3 }
         }
       });
-    </script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var video = document.getElementById('heroVideo');
-      var segmentLength = 3; // שניות לכל קטע
-      var startTime = 0; // התחלה מ-00:00
-      var segments = [];
-      var playedSegments = [];
-      var timeoutId;
-
-      function initSegments() {
-        segments = [];
-        playedSegments = [];
-        var duration = Math.floor(video.duration);
-        for (var t = startTime; t < duration - segmentLength; t += segmentLength) {
-          segments.push(t);
-        }
-      }
-
-      function playRandomSegment(skipTime) {
-        // הסר את הקטע הנוכחי מהרשימה כדי לא לחזור עליו
-        if (typeof skipTime === 'number') {
-          segments = segments.filter(function(t) { return t !== skipTime; });
-        }
-        if (segments.length === 0) {
-          // כל הקטעים נוצלו, מתחילים מחדש
-          initSegments();
-        }
-        // בחר קטע אקראי שלא שוחק
-        var idx = Math.floor(Math.random() * segments.length);
-        var segStart = segments[idx];
-        video.currentTime = segStart;
-        video.play();
-        playedSegments.push(segStart);
-
-        // קבע את הקפיצה הבאה
-        timeoutId = setTimeout(function() {
-          playRandomSegment(segStart);
-        }, segmentLength * 1000);
-      }
-
-      video.addEventListener('loadedmetadata', function() {
-        if (timeoutId) clearTimeout(timeoutId);
-        initSegments();
-        video.currentTime = startTime;
-        video.play();
-        timeoutId = setTimeout(function() {
-          playRandomSegment(startTime);
-        }, segmentLength * 1000);
-      });
-    });
     </script>
     <script src="script.js"></script>
 </body>
