@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הזמן הרצאה | יומן מלחמה</title>
+    <meta name="description" content="הזמן הרצאה מעוררת השראה מיפתח גץ – לוחם, גשש ומרצה. הרצאות מותאמות למפקדים, לוחמים, בתי ספר, חברות וקהילות.">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: #111;
+            color: #fff;
+            font-family: 'Assistant', Arial, sans-serif;
+        }
+        .lecture-header {
+            text-align: center;
+            margin: 48px 0 32px 0;
+        }
+        .lecture-header h1 {
+            font-size: 2.8em;
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 0.2em;
+            letter-spacing: 0.01em;
+        }
+        .lecture-header p {
+            color: #ffe6b3;
+            font-size: 1.3em;
+            margin-bottom: 0;
+        }
+        .audience-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 36px;
+            justify-content: center;
+            margin: 48px auto 0 auto;
+            max-width: 1200px;
+        }
+        .audience-box {
+            background: #181818;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+            border: 2px solid #fff;
+            max-width: 340px;
+            min-width: 260px;
+            flex: 1 1 320px;
+            padding: 32px 24px 28px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.2s, border-color 0.2s;
+            margin-bottom: 24px;
+        }
+        .audience-box:hover {
+            box-shadow: 0 8px 32px rgba(255,0,0,0.18), 0 4px 18px rgba(0,0,0,0.45);
+            border-color: #8B1A1A;
+        }
+        .audience-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        .audience-img {
+            width: 100%;
+            max-width: 220px;
+            height: 140px;
+            background: #222;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            object-fit: cover;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+            display: block;
+        }
+        .audience-desc {
+            font-size: 1.1em;
+            color: #ffe6b3;
+            margin-bottom: 0;
+            text-align: center;
+            min-height: 120px;
+        }
+        @media (max-width: 900px) {
+            .audience-section {
+                flex-direction: column;
+                align-items: center;
+                gap: 24px;
+            }
+            .audience-box {
+                width: 90%;
+                max-width: 500px;
+            }
+        }
+        .order-cta {
+            display: block;
+            margin: 48px auto 0 auto;
+            padding: 16px 48px;
+            background: #8B1A1A;
+            color: #fff;
+            font-size: 1.4em;
+            font-weight: bold;
+            border-radius: 32px;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 18px rgba(139,26,26,0.18);
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        }
+        .order-cta:hover {
+            background: #a83232;
+            color: #fff;
+            box-shadow: 0 8px 32px rgba(139,26,26,0.22);
+        }
+        .modern-box {
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(139,26,26,0.08);
+            border-radius: 22px;
+            padding-bottom: 24px;
+            background: linear-gradient(120deg, #181818 80%, #232323 100%);
+            border: 2.5px solid #fff;
+            margin-bottom: 32px;
+            transition: box-shadow 0.22s, border-color 0.22s, transform 0.18s;
+        }
+        .modern-box:hover {
+            box-shadow: 0 12px 40px rgba(139,26,26,0.18), 0 8px 32px rgba(0,0,0,0.22);
+            border-color: #8B1A1A;
+            transform: translateY(-6px) scale(1.03);
+        }
+        .modern-box .audience-img {
+            border-radius: 0 0 18px 18px;
+            width: 100%;
+            max-width: 100%;
+            height: 220px;
+            object-fit: cover;
+            margin-bottom: 0;
+            box-shadow: none;
+        }
+        .modern-box .audience-title {
+            font-size: 1.25em;
+            font-weight: bold;
+            color: #fff;
+            margin: 18px 0 10px 0;
+            text-align: center;
+            letter-spacing: 0.01em;
+        }
+        .modern-box .audience-desc {
+            color: #ffe6b3;
+            font-size: 1.08em;
+            margin-bottom: 18px;
+            min-height: 90px;
+            text-align: center;
+        }
+        .mini-cta {
+            display: inline-block;
+            background: #8B1A1A;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 18px;
+            padding: 8px 22px;
+            font-size: 1.08em;
+            text-decoration: none;
+            margin-top: 8px;
+            transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+            box-shadow: 0 2px 8px rgba(139,26,26,0.12);
+        }
+        .mini-cta:hover {
+            background: #a83232;
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(139,26,26,0.22);
+        }
+    </style>
+</head>
+<body>
+    <div class="lecture-header">
+        <h1>הזמן הרצאה – השראה מהשטח</h1>
+        <p>הרצאות חווייתיות, מרגשות ומעצימות – מותאמות אישית לכל קהל יעד.<br>המסע, התובנות, הרוח והאומץ – ישירות מהחזית אליכם.</p>
+        <div class="cta-row" style="display:flex;gap:18px;justify-content:center;margin:32px 0 0 0;flex-wrap:wrap;">
+            <a href="https://wa.me/972522980796" target="_blank" rel="noopener" class="cta-button" style="background:#25D366; color:#111; font-weight:bold; font-size:1.15em; border:none;">שלח לי ווטסאפ</a>
+            <a href="mailto:iegetz@gmail.com" class="cta-button" style="background:#8B1A1A; color:#fff; font-weight:bold; font-size:1.15em;">שלח לי מייל</a>
+        </div>
+    </div>
+    <section class="audience-section">
+        <div class="audience-box modern-box">
+            <img src="IMAEGE/dol.jpg" alt="מפקדים ולוחמים" class="audience-img">
+            <div class="audience-title">מפקדים ולוחמים</div>
+            <div class="audience-desc">
+                הרצאה למפקדים ולוחמים על מנהיגות בשדה הקרב, קבלת החלטות תחת לחץ, פיקוד ערכי, תודעה לוחמת, חוסן מנטלי, רעות אמיצה, והיכולת להוביל אנשים ברגעי משבר. סיפורים אמיתיים, תובנות מהשטח, וכלים מעשיים להובלה והשראה.
+            </div>
+            <a href="#lecture-form" class="mini-cta">להזמנת ההרצאה</a>
+        </div>
+        <div class="audience-box modern-box">
+            <img src="IMAEGE/kol.jpg" alt="בתי ספר ומכינות" class="audience-img">
+            <div class="audience-title">בתי ספר ומכינות</div>
+            <div class="audience-desc">
+                הרצאה מעוררת השראה על יוזמה, חינוך לערכים, משמעות ה"הנני" – להיות שם עבור האחר, אומץ לבחור נכון, אחריות אישית, והיכולת להוביל שינוי. מותאם לבני נוער, מכינות, וצוותי חינוך – עם דגש על העצמה, דוגמה אישית, ולקיחת יוזמה.
+            </div>
+            <a href="#lecture-form" class="mini-cta">להזמנת ההרצאה</a>
+        </div>
+        <div class="audience-box modern-box">
+            <img src="IMAEGE/hol.jpg" alt="חברות וארגונים" class="audience-img">
+            <div class="audience-title">חברות וארגונים</div>
+            <div class="audience-desc">
+                הרצאה סוחפת על יזמות, עבודת צוות, ניהול משברים, גיבוש מטרות, התמודדות עם כישלון, והובלת צוותים להצלחה. כלים מעשיים מעולם הלחימה והשטח – מותאם לעובדים, מנהלים, צוותי הנהלה ויזמים. השראה לפעולה, חשיבה יצירתית, ופריצת גבולות.
+            </div>
+            <a href="#lecture-form" class="mini-cta">להזמנת ההרצאה</a>
+        </div>
+        <div class="audience-box modern-box">
+            <img src="IMAEGE/jol.jpg" alt="קהילות" class="audience-img">
+            <div class="audience-title">קהילות</div>
+            <div class="audience-desc">
+                הרצאה ייחודית על רעות, ערבות הדדית, בניית DNA חברתי, חוסן קהילתי, והמשמעות של "זאב בודד" בתוך קהילה. סיפורים מהשטח, תובנות על כוחו של היחד, והשראה לבניית קהילה מחבקת, תומכת ומובילה שינוי.
+            </div>
+            <a href="#lecture-form" class="mini-cta">להזמנת ההרצאה</a>
+        </div>
+    </section>
+    <section id="lecture-form" style="max-width:600px;margin:48px auto 32px auto;">
+        <h2 class="section-title" style="margin-bottom:18px; text-align:center;">טופס הזמנת הרצאה</h2>
+        <form action="https://formspree.io/f/xeogyzzv" method="POST" class="contact-form" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+            <input type="hidden" name="_replyto" value="iegetz@gmsail.com">
+            <input type="hidden" name="subject" value="הזמנות הרצאות">
+            <div class="form-group" style="width:100%;max-width:420px;text-align:center;">
+                <label for="name">שם מלא <span style="color:red">*</span></label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group" style="width:100%;max-width:420px;text-align:center;">
+                <label for="email">אימייל <span style="color:red">*</span></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group" style="width:100%;max-width:420px;text-align:center;">
+                <label for="phone">נייד <span style="color:red">*</span></label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group" style="width:100%;max-width:420px;text-align:center;">
+                <label for="participants">מספר משתתפים <span style="color:red">*</span></label>
+                <input type="number" id="participants" name="participants" min="1" required>
+            </div>
+            <div class="form-group" style="width:100%;max-width:420px;text-align:center;">
+                <label for="date">תאריך מבוקש <span style="color:red">*</span></label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group" style="width:100%;max-width:420px;text-align:center;">
+                <label for="lecture-type">איזו הרצאה תרצו להזמין? <span style="color:red">*</span></label>
+                <select id="lecture-type" name="lecture-type" required>
+                    <option value="">בחר הרצאה...</option>
+                    <option value="מפקדים ולוחמים">מפקדים ולוחמים</option>
+                    <option value="בתי ספר ומכינות">בתי ספר ומכינות</option>
+                    <option value="חברות וארגונים">חברות וארגונים</option>
+                    <option value="קהילות">קהילות</option>
+                </select>
+            </div>
+            <div class="form-group" style="width:100%;max-width:420px;text-align:center;">
+                <label for="message">הערות / פרטים נוספים</label>
+                <textarea id="message" name="message" rows="3"></textarea>
+            </div>
+            <div class="form-group" style="width:100%;max-width:420px;text-align:center;">
+                <label for="consent" style="display:flex;align-items:center;gap:8px;">
+                    <input type="checkbox" id="consent" name="consent" required style="width:18px;height:18px;"> מאשר יצירת קשר <span style="color:red">*</span>
+                </label>
+            </div>
+            <div style="color:#ffe6b3; font-size:0.98em; margin-bottom:8px;">* שדה חובה</div>
+            <button type="submit" class="cta-button" style="margin-top:18px; font-size:1.2em; display:block; margin-left:auto; margin-right:auto;">שלח בקשה להרצאה</button>
+        </form>
+    </section>
+</body>
+</html> 

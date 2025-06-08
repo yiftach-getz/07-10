@@ -56,7 +56,11 @@ window.addEventListener('DOMContentLoaded', function() {
                 typeTarget.innerHTML += fullText[i];
             }
             i++;
-            setTimeout(typeWriter, 28);
+            setTimeout(typeWriter, 55);
+        } else {
+            // בסיום ההקלדה, הסר את הסמן המהבהב
+            typeTarget.style.borderLeft = 'none';
+            typeTarget.style.animation = 'none';
         }
     }
     typeWriter();

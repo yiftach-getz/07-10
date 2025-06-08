@@ -281,12 +281,13 @@ iframe {
     direction: rtl;
     background: none;
     white-space: pre-line;
+    line-height: 2.1;
 }
 
 #typewriter-text {
-    border-left: 2px solid #ffe6b3;
+    /* border-left: 2px solid #ffe6b3; */
     padding-left: 4px;
-    animation: blink-caret 0.8s step-end infinite;
+    /* animation: blink-caret 0.8s step-end infinite; */
 }
 
 @keyframes blink-caret {
@@ -315,7 +316,7 @@ iframe {
 .about-me p {
     font-size: 1.2em;
     line-height: 1.7;
-    color: #ffe6b3;
+    color: #fff;
     font-family: 'Assistant', Arial, sans-serif;
 }
 
@@ -407,7 +408,7 @@ iframe {
 
 .swiper {
     width: 100%;
-    padding: 20px 0;
+    padding: 8px 0;
     direction: rtl;
 }
 .swiper-slide {
@@ -588,4 +589,11 @@ iframe {
     padding: 18px 6px 18px 6px;
     max-width: 98vw;
   }
+}
+
+body, p, .about-me p, .hero-subtitle, .diary-full-text, .diary-excerpt, .excerpt-summary {
+    color: #fff !important;
+    font-family: 'Assistant', Arial, sans-serif !important;
+    font-size: 1.2em;
+    letter-spacing: 0.01em;
 } 
