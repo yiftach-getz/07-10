@@ -287,5 +287,71 @@
       });
     </script>
     <script src="script.js"></script>
+
+    <footer class="site-footer" style="background:#fff; color:#222; border-top:1.5px solid #eee; margin-top:48px; padding:36px 0 0 0; font-family:'Assistant',Arial,sans-serif;">
+      <div style="max-width:1100px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:32px; padding:0 18px;">
+        <div style="min-width:180px;">
+          <div style="font-weight:bold; font-size:1.15em; margin-bottom:12px;">קישורים מהירים</div>
+          <ul style="list-style:none; padding:0; margin:0; line-height:2.1;">
+            <li><a href="purchase.html">רכישת הספר</a></li>
+            <li><a href="#" onclick="openTerms(event)">תקנון</a></li>
+            <li><a href="mailto:iegetz@gmail.com">צור קשר</a></li>
+            <li><a href="https://chat.whatsapp.com/DiXcXn8Al4oEL6B1uqA0rg" target="_blank">קבוצת וואטסאפ</a></li>
+          </ul>
+        </div>
+        <div style="min-width:180px;">
+          <div style="font-weight:bold; font-size:1.15em; margin-bottom:12px;">רשתות חברתיות</div>
+          <ul style="list-style:none; padding:0; margin:0; line-height:2.1;">
+            <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
+            <li><a href="https://www.instagram.com/" target="_blank">Instagram</a></li>
+            <li><a href="https://t.me/" target="_blank">Telegram</a></li>
+          </ul>
+        </div>
+        <div style="flex:1; min-width:220px;">
+          <div style="font-weight:bold; font-size:1.15em; margin-bottom:12px;">פרטי העסק</div>
+          <div style="line-height:2.1;">
+            <div>יפתח גץ</div>
+            <div>התירוש 11, בני דקלים</div>
+            <div>052-2980796</div>
+            <div><a href="mailto:iegetz@gmail.com">iegetz@gmail.com</a></div>
+          </div>
+        </div>
+        <div style="min-width:180px; text-align:center;">
+          <img src="IMAEGE/logo.jpg.png" alt="לוגו האתר" style="width:70px; border-radius:12px; margin-bottom:12px;">
+          <div style="font-size:0.98em; color:#888;">כל הזכויות שמורות &copy; 2024</div>
+        </div>
+      </div>
+      <div style="text-align:center; color:#8B1A1A; font-size:0.98em; margin:18px 0 0 0; padding-bottom:18px;">
+        אין החזר כספי ואין ביטול עסקה לאחר הרכישה | רכישה מגיל 18+ בלבד | אספקה עד 14 ימי עסקים | האתר עומד בדרישות הרגולציה
+      </div>
+    </footer>
+    <!-- תקנון פופאפ -->
+    <div class="terms-popup" id="termsPopup" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.32); z-index:9999; align-items:center; justify-content:center;">
+      <div class="terms-content" style="background:#fff; color:#222; border-radius:18px; max-width:480px; width:96vw; padding:32px 18px; position:relative; box-shadow:0 8px 32px rgba(139,26,26,0.13);">
+        <button class="close-terms" onclick="closeTerms()" style="position:absolute; left:18px; top:18px; background:#8B1A1A; color:#fff; border:none; border-radius:50%; width:36px; height:36px; font-size:1.3em; cursor:pointer;">×</button>
+        <h2 style="color:#8B1A1A; font-size:1.2em; margin-bottom:18px;">תקנון רכישת ספרים באתר</h2>
+        <ol style="text-align:right;direction:rtl; font-size:1em;">
+          <li>האתר משמש לרכישת ספרים בלבד, בבעלות יפתח גץ, התירוש 11 בני דקלים.</li>
+          <li>אספקת הספר תתבצע לכתובת שהוזנה בטופס ההזמנה, תוך 14 ימי עסקים מיום קבלת התשלום, אלא אם צוין אחרת בדף הרכישה.</li>
+          <li>הגבלת גיל: רכישה באתר מותרת מגיל 18 ומעלה בלבד.</li>
+          <li>המחירים כוללים מע"מ כדין.</li>
+          <li>הפרטים האישיים שמסרת ישמשו להשלמת הרכישה בלבד ולא יועברו לצד ג' כלשהו.</li>
+          <li>האתר ו/או בעליו אינם אחראים לכל נזק ישיר או עקיף שייגרם כתוצאה משימוש בשירות/במוצר.</li>
+          <li>אין החזר כספי ואין ביטול עסקה לאחר הרכישה, בהתאם להוראות חוק הגנת הצרכן, התשמ"א-1981.</li>
+          <li>כתובת העסק: התירוש 11, בני דקלים. טלפון: 052-2980796. אימייל: iegetz@gmail.com</li>
+          <li>האתר שומר לעצמו את הזכות לעדכן את התקנון בכל עת.</li>
+        </ol>
+        <div style="color:#8B1A1A; font-size:1.1em; margin-top:18px;">לתשומת לבך: אין החזר כספי ואין ביטול עסקה לאחר הרכישה!</div>
+      </div>
+    </div>
+    <script>
+      function openTerms(e) {
+        if(e) e.preventDefault();
+        document.getElementById('termsPopup').style.display = 'flex';
+      }
+      function closeTerms() {
+        document.getElementById('termsPopup').style.display = 'none';
+      }
+    </script>
 </body>
 </html> 
