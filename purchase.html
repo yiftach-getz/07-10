@@ -6,17 +6,157 @@
   <title>רכישת הספר | יומן מלחמה</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    body { background: #111; color: #fff; font-family: 'Assistant', Arial, sans-serif; }
-    .purchase-container { max-width: 480px; margin: 48px auto; background: #181818; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.18); padding: 36px 24px; }
-    .purchase-title { font-size: 2.1em; font-weight: bold; color: #fff; text-align: center; margin-bottom: 18px; }
-    .business-info { background: #222; border-radius: 12px; padding: 16px; margin-bottom: 24px; font-size: 1.1em; color: #ffe6b3; }
+    body { background: #f7f7f7; color: #222; font-family: 'Assistant', Arial, sans-serif; }
+    .purchase-hero {
+      background: linear-gradient(120deg, #fff 60%, #ffe6b3 100%);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(139,26,26,0.10);
+      max-width: 900px;
+      margin: 36px auto 24px auto;
+      padding: 36px 24px 24px 24px;
+      text-align: center;
+    }
+    .purchase-hero h1 {
+      font-size: 2.5em;
+      color: #8B1A1A;
+      font-weight: bold;
+      margin-bottom: 0.2em;
+    }
+    .purchase-hero .subtitle {
+      color: #333;
+      font-size: 1.3em;
+      margin-bottom: 18px;
+    }
+    .purchase-hero ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px 0;
+      color: #444;
+      font-size: 1.13em;
+    }
+    .purchase-hero ul li {
+      margin-bottom: 8px;
+      padding-right: 0.7em;
+      position: relative;
+    }
+    .purchase-hero ul li:before {
+      content: '✔';
+      color: #8B1A1A;
+      font-weight: bold;
+      margin-left: 8px;
+    }
+    .gallery-row {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 18px 0 0 0;
+    }
+    .gallery-row img {
+      width: 140px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(139,26,26,0.13);
+      border: 2px solid #fff;
+      background: #eee;
+      transition: transform 0.22s, box-shadow 0.22s;
+    }
+    .gallery-row img:hover {
+      transform: scale(1.07) rotate(-2deg);
+      box-shadow: 0 8px 32px rgba(139,26,26,0.18);
+      border-color: #8B1A1A;
+    }
+    .purchase-options {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 36px auto 24px auto;
+      max-width: 900px;
+    }
+    .option-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 18px rgba(139,26,26,0.10);
+      padding: 32px 24px 24px 24px;
+      min-width: 270px;
+      max-width: 340px;
+      flex: 1 1 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 2.5px solid #ffe6b3;
+      transition: box-shadow 0.22s, border-color 0.22s, transform 0.18s;
+      position: relative;
+      cursor: pointer;
+    }
+    .option-card.selected, .option-card:hover {
+      border-color: #8B1A1A;
+      box-shadow: 0 8px 32px rgba(139,26,26,0.18);
+      transform: translateY(-6px) scale(1.03);
+    }
+    .option-card .option-title {
+      font-size: 1.35em;
+      font-weight: bold;
+      color: #8B1A1A;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .option-card .option-price {
+      font-size: 2.5em;
+      color: #222;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    .option-card .option-desc {
+      color: #444;
+      font-size: 1.08em;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .option-card img {
+      width: 100%;
+      max-width: 220px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px rgba(139,26,26,0.10);
+    }
+    .option-card .popular {
+      position: absolute;
+      top: 0; left: 0;
+      background: #8B1A1A;
+      color: #fff;
+      font-size: 1em;
+      font-weight: bold;
+      padding: 6px 18px;
+      border-radius: 0 0 18px 0;
+      letter-spacing: 0.04em;
+    }
+    .purchase-form-section {
+      max-width: 480px;
+      margin: 48px auto 32px auto;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(139,26,26,0.13);
+      padding: 36px 24px;
+    }
+    .purchase-form-section h2 {
+      color: #8B1A1A;
+      font-size: 1.5em;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 18px;
+    }
     .purchase-form { display: flex; flex-direction: column; gap: 16px; align-items: center; }
-    .purchase-form label { color: #ffe6b3; font-size: 1.08em; margin-bottom: 2px; }
-    .purchase-form input, .purchase-form textarea, .purchase-form select { border: 1.5px solid #fff; border-radius: 8px; padding: 10px 12px; font-size: 1.1em; background: #222; color: #fff; outline: none; width: 100%; max-width: 320px; }
+    .purchase-form label { color: #8B1A1A; font-size: 1.08em; margin-bottom: 2px; }
+    .purchase-form input, .purchase-form textarea, .purchase-form select { border: 1.5px solid #ffe6b3; border-radius: 8px; padding: 10px 12px; font-size: 1.1em; background: #f7f7f7; color: #222; outline: none; width: 100%; max-width: 320px; }
     .purchase-form textarea { resize: vertical; min-height: 48px; }
     .purchase-form .form-group { width: 100%; display: flex; flex-direction: column; align-items: center; }
     .purchase-form .consent-row { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
-    .purchase-form .cta-button { margin-top: 18px; font-size: 1.2em; }
+    .purchase-form .cta-button { margin-top: 18px; font-size: 1.2em; background: #8B1A1A; color: #fff; border: none; border-radius: 8px; padding: 12px 32px; box-shadow: 0 2px 8px rgba(139,26,26,0.13); transition: background 0.2s; }
     .purchase-form .cta-button:disabled { opacity: 0.5; cursor: not-allowed; }
     .terms-link { color: #8B1A1A; text-decoration: underline; cursor: pointer; font-weight: bold; }
     .terms-popup { display: none; position: fixed; top: 0; right: 0; left: 0; bottom: 0; background: rgba(0,0,0,0.85); z-index: 9999; align-items: center; justify-content: center; }
@@ -24,19 +164,48 @@
     .terms-content { background: #fff; color: #111; border-radius: 16px; max-width: 90vw; max-height: 80vh; overflow-y: auto; padding: 32px 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.25); position: relative; }
     .terms-content h2 { color: #8B1A1A; font-size: 1.4em; margin-bottom: 18px; }
     .close-terms { position: absolute; left: 18px; top: 18px; background: #8B1A1A; color: #fff; border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 1.3em; cursor: pointer; }
-    @media (max-width: 600px) { .purchase-container { padding: 12px 2px; } .terms-content { padding: 12px 4px; } }
+    @media (max-width: 900px) { .purchase-options { flex-direction: column; gap: 18px; } }
+    @media (max-width: 600px) { .purchase-hero, .purchase-form-section { padding: 12px 2px; } .terms-content { padding: 12px 4px; } .option-card { min-width: 90vw; } }
   </style>
 </head>
 <body>
-  <div class="purchase-container">
-    <div class="purchase-title">רכישת הספר "יומן מלחמה"</div>
-    <div class="business-info">
-      <div><b>שם העסק:</b> בית הרב גץ</div>
-      <div><b>כתובת:</b> התירוש 11, בני דקלים</div>
-      <div><b>טלפון:</b> 052-2980796</div>
-      <div><b>אימייל:</b> iegetz@gmail.com</div>
+  <div class="purchase-hero">
+    <h1>רכישת הספר "יומן מלחמה"</h1>
+    <ul>
+      <li>600 ימי לחימה – עדות אישית מהחזית</li>
+      <li>תמונות אותנטיות מימי הקרב</li>
+      <li>איורים מקוריים המציגים את נפש הלוחם והדילמות</li>
+      <li>מסמכים נדירים המתפרסמים לראשונה</li>
+      <li>ספר מעורר השראה, עיצוב ייחודי, חוויה ישראלית אמיתית</li>
+    </ul>
+    <div class="gallery-row">
+      <img src="IMAEGE/20240414_221845.jpg" alt="תמונה אותנטית 1">
+      <img src="IMAEGE/20231016_175844.jpg" alt="תמונה אותנטית 2">
+      <img src="IMAEGE/20240702_065729.jpg" alt="תמונה אותנטית 3">
+      <img src="IMAEGE/IMAEGE1.jpeg" alt="תמונה אותנטית 4">
+      <img src="IMAEGE/3.jpg.jpeg" alt="תמונה אותנטית 5">
     </div>
+  </div>
+  <div class="purchase-options">
+    <div class="option-card selected" id="deliveryOption" onclick="selectOption('delivery')">
+      <div class="popular">פופולרי</div>
+      <img src="IMAEGE/20240414_222718.jpg" alt="משלוח עד הבית">
+      <div class="option-title">משלוח עד הבית</div>
+      <div class="option-price">₪145</div>
+      <div class="option-desc">הספר (110 ₪) + דמי טיפול ומשלוח עד הבית (35 ₪)<br>הספר יישלח תוך 7 ימי עסקים מיום התשלום<br>המשלוח יתבצע לכתובת המוזנת בטופס</div>
+    </div>
+    <div class="option-card" id="pickupOption" onclick="selectOption('pickup')">
+      <div class="popular" style="background:#b38b00;">מומלץ</div>
+      <img src="IMAEGE/20231009_183936.jpg" alt="איסוף עצמי">
+      <div class="option-title">איסוף עצמי – בני דקלים</div>
+      <div class="option-price">₪110</div>
+      <div class="option-desc">איסוף עצמי ללא עלות מבני דקלים, התירוש 11<br>ניצור קשר לתיאום איסוף במייל/טלפון לאחר ההזמנה</div>
+    </div>
+  </div>
+  <div class="purchase-form-section">
+    <h2>טופס הזמנה מאובטח</h2>
     <form class="purchase-form" action="https://formspree.io/f/xeogyzzv" method="POST" onsubmit="return validateTerms()">
+      <input type="hidden" id="deliveryType" name="deliveryType" value="משלוח עד הבית">
       <div class="form-group">
         <label for="name">שם מלא <span style="color:red">*</span></label>
         <input type="text" id="name" name="name" required>
@@ -65,7 +234,7 @@
         <input type="checkbox" id="terms" name="terms" required>
         <label for="terms">קראתי ואני מסכים/ה ל <span class="terms-link" onclick="openTerms(event)">תקנון האתר</span> <span style="color:red">*</span></label>
       </div>
-      <button type="submit" class="cta-button">לרכישה</button>
+      <button type="submit" class="cta-button">לרכישה מאובטחת</button>
     </form>
   </div>
   <div class="terms-popup" id="termsPopup">
@@ -73,7 +242,7 @@
       <button class="close-terms" onclick="closeTerms()">×</button>
       <h2>תקנון רכישת ספרים באתר</h2>
       <ol style="text-align:right;direction:rtl;">
-        <li>האתר משמש לרכישת ספרים בלבד, בבעלות בית הרב גץ, התירוש 11 בני דקלים.</li>
+        <li>האתר משמש לרכישת ספרים בלבד, בבעלות יפתח גץ, התירוש 11 בני דקלים.</li>
         <li>אספקת הספר תתבצע לכתובת שהוזנה בטופס ההזמנה, תוך 14 ימי עסקים מיום קבלת התשלום, אלא אם צוין אחרת בדף הרכישה.</li>
         <li>הגבלת גיל: רכישה באתר מותרת מגיל 18 ומעלה בלבד.</li>
         <li>המחירים כוללים מע"מ כדין.</li>
@@ -101,6 +270,20 @@
         return false;
       }
       return true;
+    }
+    // בחירת אופציה
+    function selectOption(type) {
+      document.getElementById('deliveryOption').classList.remove('selected');
+      document.getElementById('pickupOption').classList.remove('selected');
+      if(type === 'delivery') {
+        document.getElementById('deliveryOption').classList.add('selected');
+        document.getElementById('deliveryType').value = 'משלוח עד הבית';
+      } else {
+        document.getElementById('pickupOption').classList.add('selected');
+        document.getElementById('deliveryType').value = 'איסוף עצמי – בני דקלים';
+      }
+      // גלול לטופס
+      document.querySelector('.purchase-form-section').scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 </body>
