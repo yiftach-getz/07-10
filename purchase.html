@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>רכישת הספר | יומן מלחמה</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { background: #111; color: #fff; font-family: 'Assistant', Arial, sans-serif; }
+    .purchase-container { max-width: 480px; margin: 48px auto; background: #181818; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.18); padding: 36px 24px; }
+    .purchase-title { font-size: 2.1em; font-weight: bold; color: #fff; text-align: center; margin-bottom: 18px; }
+    .business-info { background: #222; border-radius: 12px; padding: 16px; margin-bottom: 24px; font-size: 1.1em; color: #ffe6b3; }
+    .purchase-form { display: flex; flex-direction: column; gap: 16px; align-items: center; }
+    .purchase-form label { color: #ffe6b3; font-size: 1.08em; margin-bottom: 2px; }
+    .purchase-form input, .purchase-form textarea, .purchase-form select { border: 1.5px solid #fff; border-radius: 8px; padding: 10px 12px; font-size: 1.1em; background: #222; color: #fff; outline: none; width: 100%; max-width: 320px; }
+    .purchase-form textarea { resize: vertical; min-height: 48px; }
+    .purchase-form .form-group { width: 100%; display: flex; flex-direction: column; align-items: center; }
+    .purchase-form .consent-row { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+    .purchase-form .cta-button { margin-top: 18px; font-size: 1.2em; }
+    .purchase-form .cta-button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .terms-link { color: #8B1A1A; text-decoration: underline; cursor: pointer; font-weight: bold; }
+    .terms-popup { display: none; position: fixed; top: 0; right: 0; left: 0; bottom: 0; background: rgba(0,0,0,0.85); z-index: 9999; align-items: center; justify-content: center; }
+    .terms-popup.active { display: flex; }
+    .terms-content { background: #fff; color: #111; border-radius: 16px; max-width: 90vw; max-height: 80vh; overflow-y: auto; padding: 32px 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.25); position: relative; }
+    .terms-content h2 { color: #8B1A1A; font-size: 1.4em; margin-bottom: 18px; }
+    .close-terms { position: absolute; left: 18px; top: 18px; background: #8B1A1A; color: #fff; border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 1.3em; cursor: pointer; }
+    @media (max-width: 600px) { .purchase-container { padding: 12px 2px; } .terms-content { padding: 12px 4px; } }
+  </style>
+</head>
+<body>
+  <div class="purchase-container">
+    <div class="purchase-title">רכישת הספר "יומן מלחמה"</div>
+    <div class="business-info">
+      <div><b>שם העסק:</b> בית הרב גץ</div>
+      <div><b>כתובת:</b> התירוש 11, בני דקלים</div>
+      <div><b>טלפון:</b> 052-2980796</div>
+      <div><b>אימייל:</b> iegetz@gmail.com</div>
+    </div>
+    <form class="purchase-form" action="https://formspree.io/f/xeogyzzv" method="POST" onsubmit="return validateTerms()">
+      <div class="form-group">
+        <label for="name">שם מלא <span style="color:red">*</span></label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">אימייל <span style="color:red">*</span></label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">נייד <span style="color:red">*</span></label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+      <div class="form-group">
+        <label for="address">כתובת למשלוח <span style="color:red">*</span></label>
+        <input type="text" id="address" name="address" required>
+      </div>
+      <div class="form-group">
+        <label for="quantity">כמות ספרים <span style="color:red">*</span></label>
+        <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+      </div>
+      <div class="form-group">
+        <label for="notes">הערות להזמנה</label>
+        <textarea id="notes" name="notes"></textarea>
+      </div>
+      <div class="form-group consent-row">
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">קראתי ואני מסכים/ה ל <span class="terms-link" onclick="openTerms(event)">תקנון האתר</span> <span style="color:red">*</span></label>
+      </div>
+      <button type="submit" class="cta-button">לרכישה</button>
+    </form>
+  </div>
+  <div class="terms-popup" id="termsPopup">
+    <div class="terms-content">
+      <button class="close-terms" onclick="closeTerms()">×</button>
+      <h2>תקנון רכישת ספרים באתר</h2>
+      <ol style="text-align:right;direction:rtl;">
+        <li>האתר משמש לרכישת ספרים בלבד, בבעלות בית הרב גץ, התירוש 11 בני דקלים.</li>
+        <li>אספקת הספר תתבצע לכתובת שהוזנה בטופס ההזמנה, תוך 14 ימי עסקים מיום קבלת התשלום, אלא אם צוין אחרת בדף הרכישה.</li>
+        <li>הגבלת גיל: רכישה באתר מותרת מגיל 18 ומעלה בלבד.</li>
+        <li>המחירים כוללים מע"מ כדין.</li>
+        <li>הפרטים האישיים שמסרת ישמשו להשלמת הרכישה בלבד ולא יועברו לצד ג' כלשהו.</li>
+        <li>האתר ו/או בעליו אינם אחראים לכל נזק ישיר או עקיף שייגרם כתוצאה משימוש בשירות/במוצר.</li>
+        <li>אין החזר כספי ואין ביטול עסקה לאחר הרכישה, בהתאם להוראות חוק הגנת הצרכן, התשמ"א-1981.</li>
+        <li>כתובת העסק: התירוש 11, בני דקלים. טלפון: 052-2980796. אימייל: iegetz@gmail.com</li>
+        <li>האתר שומר לעצמו את הזכות לעדכן את התקנון בכל עת.</li>
+      </ol>
+      <div style="color:#8B1A1A; font-size:1.1em; margin-top:18px;">לתשומת לבך: אין החזר כספי ואין ביטול עסקה לאחר הרכישה!</div>
+    </div>
+  </div>
+  <script>
+    function openTerms(e) {
+      e.preventDefault();
+      document.getElementById('termsPopup').classList.add('active');
+    }
+    function closeTerms() {
+      document.getElementById('termsPopup').classList.remove('active');
+    }
+    function validateTerms() {
+      var terms = document.getElementById('terms');
+      if (!terms.checked) {
+        alert('יש לאשר קריאת התקנון לפני רכישה.');
+        return false;
+      }
+      return true;
+    }
+  </script>
+</body>
+</html> 
