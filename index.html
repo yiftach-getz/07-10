@@ -442,5 +442,25 @@
       ]
     }
     </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const video = document.getElementById('heroVideo');
+      if (video) {
+        video.playbackRate = 0.5;
+        video.addEventListener('play', function slowStart() {
+          setTimeout(() => {
+            video.playbackRate = 1;
+            video.removeEventListener('play', slowStart);
+          }, 3000);
+        });
+        // אם הוידאו כבר מנגן (autoplay), נוודא שהשינוי קורה גם אז:
+        if (!video.paused) {
+          setTimeout(() => {
+            video.playbackRate = 1;
+          }, 3000);
+        }
+      }
+    });
+    </script>
 </body>
 </html> 
