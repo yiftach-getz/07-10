@@ -215,16 +215,20 @@
     <form class="purchase-form" action="https://formspree.io/f/xeogyzzv" method="POST" onsubmit="return validateTerms()">
       <input type="hidden" id="deliveryType" name="deliveryType" value="משלוח עד הבית">
       <div class="form-group">
-        <label for="name">שם מלא <span style="color:red">*</span></label>
-        <input type="text" id="name" name="name" required>
+        <label for="firstName">שם פרטי <span style="color:red">*</span></label>
+        <input type="text" id="firstName" name="firstName" required>
+      </div>
+      <div class="form-group">
+        <label for="lastName">שם משפחה <span style="color:red">*</span></label>
+        <input type="text" id="lastName" name="lastName" required>
       </div>
       <div class="form-group">
         <label for="email">אימייל <span style="color:red">*</span></label>
         <input type="email" id="email" name="email" required>
       </div>
       <div class="form-group">
-        <label for="phone">נייד <span style="color:red">*</span></label>
-        <input type="tel" id="phone" name="phone" required>
+        <label for="phone">נייד (ללא קידומת) <span style="color:red">*</span></label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{7}" title="נא להזין מספר טלפון ללא קידומת" required>
       </div>
       <div class="form-group">
         <label for="address">כתובת למשלוח <span style="color:red">*</span></label>
@@ -249,12 +253,19 @@
     <div class="terms-content">
       <button class="close-terms" onclick="closeTerms()">×</button>
       <h2>תקנון רכישת ספרים באתר</h2>
-      <ol style="text-align:right;direction:rtl;">
+      <ol style="text-align:right;direction:rtl; font-size:1em;">
         <li>האתר משמש לרכישת ספרים בלבד, בבעלות יפתח גץ, התירוש 11 בני דקלים.</li>
         <li>אספקת הספר תתבצע לכתובת שהוזנה בטופס ההזמנה, תוך 14 ימי עסקים מיום קבלת התשלום, אלא אם צוין אחרת בדף הרכישה.</li>
         <li>הגבלת גיל: רכישה באתר מותרת מגיל 18 ומעלה בלבד.</li>
         <li>המחירים כוללים מע"מ כדין.</li>
-        <li>הפרטים האישיים שמסרת ישמשו להשלמת הרכישה בלבד ולא יועברו לצד ג' כלשהו.</li>
+        <li>פרטיות ואבטחת מידע:
+          <ul style="margin-top:8px;margin-right:18px;">
+            <li>האתר נוקט באמצעי אבטחה מקובלים וסבירים לשמירה על פרטיות המידע של המשתמשים.</li>
+            <li>המידע האישי שנמסר בעת ביצוע ההזמנה (כגון: שם, טלפון, כתובת ודוא"ל) ישמש אך ורק למטרת השלמת הזמנת הספר ומשלוח.</li>
+            <li>האתר לא יעביר את פרטי המשתמשים לצד שלישי כלשהו, אלא אם נדרש על פי חוק או לצורך השלמת ההזמנה (כגון חברת שליחויות).</li>
+            <li>האתר מאחסן את המידע באופן מאובטח ומגביל את הגישה אליו לגורמים מורשים בלבד.</li>
+          </ul>
+        </li>
         <li>האתר ו/או בעליו אינם אחראים לכל נזק ישיר או עקיף שייגרם כתוצאה משימוש בשירות/במוצר.</li>
         <li>אין החזר כספי ואין ביטול עסקה לאחר הרכישה, בהתאם להוראות חוק הגנת הצרכן, התשמ"א-1981.</li>
         <li>כתובת העסק: התירוש 11, בני דקלים. טלפון: 052-2980796. אימייל: iegetz@gmail.com</li>
