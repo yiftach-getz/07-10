@@ -25,9 +25,9 @@
     <style>
       .video-background {
         position: relative;
-        width: 100%;
+        width: 50%;
         height: auto;
-        max-width: 100%;
+        max-width: 50%;
         margin: 0 auto;
         max-height: 90vh;
         overflow: hidden;
@@ -35,8 +35,7 @@
       }
       .video-background video {
         width: 100%;
-        height: auto;
-        max-height: 90vh;
+        height: 90vh;
         object-fit: cover;
         filter: brightness(0.7);
         object-position: center top;
@@ -69,15 +68,13 @@
       }
       @media (max-width: 700px) {
         .video-background { 
+          width: 100%; 
+          max-width: 100%;
           height: 100vh; 
           margin-top: 0;
-          max-height: none;
-          max-width: 100vw;
-          width: 100vw;
         }
         .video-background video {
           height: 100vh;
-          max-height: none;
           width: 100%;
           object-fit: cover;
         }
