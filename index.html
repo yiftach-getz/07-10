@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>07:10 – 600 ימי יומן מלחמה | יפתח גץ</title>
-    <meta name="description" content="600 ימי לחימה – עדות אישית ומטלטלת מאת יפתח גץ. יומן מלחמה מה-7 באוקטובר, עוטף עזה, גבורה, השראה, יחידת זאבים, יחידת מרעול.">
+    <meta name="description" content="600 ימי יומן מלחמה - יפתח גץ | עדות אישית ומטלטלת מה-7 באוקטובר, עוטף עזה, גבורה, השראה, יחידת זאבים, יחידת מרעול.">
     <meta name="keywords" content="יומן מלחמה, יפתח גץ, האדמה תספר הכל, 07:10, 600 ימי לחימה, עוטף עזה, חמאס, גבורה, השראה, PTSD, ספרים ישראליים, לוחמים, עדות אישית, הרצאות השראה, 7 באוקטובר, יחידת זאבים, יחידת מרעול, גששי חוד, שדרות, נירעם, בארי, נובה, עזה, לבנון, סוריה, ספרי מלחמה, ספרות צבאית, ספרי עדות, מודיעין טקטי, קרב ורוח, הנני">
-    <meta property="og:title" content="07:10 – האדמה תספר הכל | יומן מלחמה אמיתי מאת יפתח גץ">
-    <meta property="og:description" content="עדות אישית ומטלטלת מה-7 באוקטובר, עוטף עזה, גבורה, השראה, ולחימה. קטעי יומן, גלריית תמונות, וידאו, רכישת הספר, והצטרפות להרצאות.">
+    <meta property="og:title" content="07:10 – האדמה תספר הכל | 600 ימי יומן מלחמה - יפתח גץ">
+    <meta property="og:description" content="600 ימי יומן מלחמה - יפתח גץ | עדות אישית ומטלטלת מה-7 באוקטובר, עוטף עזה, גבורה, השראה, ולחימה.">
     <meta property="og:image" content="https://www.seventenbook.com/חזית%20ושדרה.jpg">
     <meta property="og:url" content="https://www.seventenbook.com/">
     <meta property="og:type" content="website">
@@ -68,12 +68,24 @@
         border-bottom: 3px solid #8B1A1A !important;
       }
       @media (max-width: 700px) {
-        .video-background { height: 32vh; margin-top: 8px; }
-        .video-overlay-text { font-size: 0.92em; }
-        .main-navbar { min-height: 30px !important; }
-        .main-navbar > div { min-height: 30px !important; padding: 0 2px !important; }
-        .main-navbar a { font-size: 0.85em !important; }
-        .main-navbar a:first-child { display: none !important; }
+        .video-background { 
+          height: 100vh; 
+          margin-top: 0;
+          max-height: none;
+          max-width: 100vw;
+          width: 100vw;
+        }
+        .video-background video {
+          height: 100vh;
+          max-height: none;
+          width: 100%;
+          object-fit: cover;
+        }
+        .video-overlay-text { 
+          font-size: 0.92em;
+          padding: 0 20px;
+        }
+        .main-navbar { display: none !important; }
       }
     </style>
 </head>
@@ -116,16 +128,17 @@
         <div class="handwrite-type">
           <span id="typewriter-text">
             בתאריך 07.10<br>
-            בשעה 07:10<br>
-            זה היה הרגע שבו המספרים הסתדרו, אבל העולם התפרק.<br><br>
-            קבוצות הטלגרם של חמאס כמו<br>
-            جنين القسام , حركة حماس<br>
-            משכו אותי מהבית ללחימה בעוטף. התהום בין תפיסת הפיקוד הבכיר לבין מה שאנחנו,<br>
-            הלוחמים, חווים באמת <br>
-            נפערה מול עיניי.<br>
+            בשעה 07:10<br><br>
+            זה היה הרגע שבו המספרים הסתדרו<br>
+            אבל העולם התפרק<br><br>
+            קבוצות הטלגרם של חמאס משכו אותי מהבית ללחימה בעוטף<br>
+            התהום בין תפיסת הפיקוד הבכיר לבין מה שאנחנו<br>
+            הלוחמים<br>
+            חווים בשטח<br>
+            נפערה מול עיניי<br>
           </span>
         </div>
-        <a href="index.html" class="site-logo-link" style="display:block;margin:0 auto 24px auto;position:static;">
+        <a href="index.html" class="site-logo-link" style="display:block;margin:48px auto 24px auto;position:static;">
             <img src="IMAEGE/logo.jpg.png" alt="לוגו האתר" class="site-logo" style="width:80px;height:auto;max-width:20vw;">
         </a>
         <p class="hero-subtitle">
