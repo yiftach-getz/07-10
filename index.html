@@ -25,9 +25,9 @@
     <style>
       .video-background {
         position: relative;
-        width: 100vw;
+        width: 100%;
         height: auto;
-        max-width: 900px;
+        max-width: 100%;
         margin: 0 auto;
         max-height: 90vh;
         overflow: hidden;
@@ -86,6 +86,27 @@
           padding: 0 20px;
         }
         .main-navbar { display: none !important; }
+      }
+      .video-container {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+      .video-container iframe {
+        width: 100%;
+        max-width: 560px;
+        height: 315px;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.45);
+      }
+      @media (max-width: 600px) {
+        .video-container iframe {
+          height: 240px;
+        }
       }
     </style>
 </head>
@@ -228,10 +249,12 @@
         <div style="text-align:center; margin-top:18px; margin-bottom:10px;">
           <span style="font-size:1.1em; color:#fff;">קטעי לחימה מה-7.10, עזה, לבנון וסוריה.</span>
         </div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/OeaQkcZUZWQ" frameborder="0" allowfullscreen></iframe>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/21t0moSFcQA" frameborder="0" allowfullscreen></iframe>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/3LycCaFqru8" frameborder="0" allowfullscreen></iframe>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/LCxa0k3P-5w" frameborder="0" allowfullscreen></iframe>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/OeaQkcZUZWQ" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/21t0moSFcQA" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/3LycCaFqru8" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/LCxa0k3P-5w" frameborder="0" allowfullscreen></iframe>
+        </div>
     </section>
 
     <section class="whatsapp-group">
