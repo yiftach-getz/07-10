@@ -166,6 +166,33 @@
     .close-terms { position: absolute; left: 18px; top: 18px; background: #8B1A1A; color: #fff; border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 1.3em; cursor: pointer; }
     @media (max-width: 900px) { .purchase-options { flex-direction: column; gap: 18px; } }
     @media (max-width: 600px) { .purchase-hero, .purchase-form-section { padding: 12px 2px; } .terms-content { padding: 12px 4px; } .option-card { min-width: 90vw; } }
+    
+    @media (max-width: 768px) {
+      .book-purchase-title {
+        font-size: 1.6em !important;
+        margin: 40px auto !important;
+      }
+      .iframe-wrapper {
+        margin: 24px auto !important;
+      }
+      iframe {
+        height: 2000px !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .book-purchase-title {
+        font-size: 1.4em !important;
+        margin: 32px auto !important;
+      }
+      .iframe-wrapper {
+        margin: 20px auto !important;
+      }
+      iframe {
+        height: 1500px !important;
+        border-radius: 12px !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -195,58 +222,78 @@
     </div>
   </div>
   <div class="purchase-options">
-    <div class="option-card selected" id="deliveryOption" onclick="selectOption('delivery')">
+    <div class="option-card selected" id="deliveryOption" onclick="selectOption('delivery'); scrollToForm();">
       <div class="popular">פופולרי</div>
       <img src="IMAEGE/20240414_222718.jpg" alt="משלוח עד הבית">
       <div class="option-title">משלוח עד הבית</div>
       <div class="option-price">₪145</div>
-      <div class="option-desc">הספר (110 ₪) + דמי טיפול ומשלוח עד הבית (35 ₪)<br>הספר יישלח תוך 7 ימי עסקים מיום התשלום<br>המשלוח יתבצע לכתובת המוזנת בטופס</div>
+      <div class="option-desc">
+        הספר (₪ 110) + דמי טיפול<br>
+        ומשלוח עד הבית (₪ 35)<br>
+        הספר ישלח תוך 7 ימ' עסקים מיום<br>
+        התשלום<br>
+        המשלוח יתבצע לכתובת המוזנת<br>
+        בטופס
+      </div>
     </div>
-    <div class="option-card" id="pickupOption" onclick="selectOption('pickup')">
+    <div class="option-card" id="pickupOption" onclick="selectOption('pickup'); scrollToForm();">
       <div class="popular" style="background:#b38b00;">מומלץ</div>
       <img src="IMAEGE/20231009_183936.jpg" alt="איסוף עצמי">
       <div class="option-title">איסוף עצמי – בני דקלים</div>
       <div class="option-price">₪110</div>
-      <div class="option-desc">איסוף עצמי ללא עלות מבני דקלים, התירוש 11<br>ניצור קשר לתיאום איסוף במייל/טלפון לאחר ההזמנה</div>
+      <div class="option-desc">
+        איסוף עצמי ללא עלות מבני דקלים,<br>
+        התירוש 11<br>
+        ניצור קשר לתיאום איסוף<br>
+        במייל/טלפון לאחר ההזמנה
+      </div>
     </div>
   </div>
+
+  <div style="text-align: center; margin: 60px auto;" class="book-purchase-title">
+    <h2 style="color: #8B1A1A; font-size: 2em;">לרכישת הספר</h2>
+  </div>
+
+  <div style="width:100%; max-width:900px; margin:36px auto;" class="iframe-wrapper">
+    <iframe src="https://morning-sale.page/071023" style="width:100%; height:3000px; border:none; border-radius:18px; box-shadow:0 4px 24px rgba(139,26,26,0.13);"></iframe>
+  </div>
+
   <div class="purchase-form-section">
-    <h2>טופס הזמנה מאובטח</h2>
-    <form class="purchase-form" action="https://formspree.io/f/xeogyzzv" method="POST" onsubmit="return validateTerms()">
-      <input type="hidden" id="deliveryType" name="deliveryType" value="משלוח עד הבית">
+    <h2>הזמנה עבור חברות וארגונים</h2>
+    <form class="purchase-form" id="purchaseForm" onsubmit="return submitForm(event)">
       <div class="form-group">
-        <label for="firstName">שם פרטי <span style="color:red">*</span></label>
-        <input type="text" id="firstName" name="firstName" required>
+        <label for="companyName">שם החברה או הארגון *</label>
+        <input type="text" id="companyName" name="companyName" required>
       </div>
       <div class="form-group">
-        <label for="lastName">שם משפחה <span style="color:red">*</span></label>
-        <input type="text" id="lastName" name="lastName" required>
+        <label for="quantity">מספר ספרים להזמנה *</label>
+        <input type="number" id="quantity" name="quantity" min="1" required>
       </div>
       <div class="form-group">
-        <label for="email">אימייל <span style="color:red">*</span></label>
+        <label for="contactName">שם איש קשר *</label>
+        <input type="text" id="contactName" name="contactName" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">טלפון *</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+      <div class="form-group">
+        <label for="email">אימייל *</label>
         <input type="email" id="email" name="email" required>
       </div>
-      <div class="form-group">
-        <label for="phone">נייד (ללא קידומת) <span style="color:red">*</span></label>
-        <input type="tel" id="phone" name="phone" pattern="[0-9]{7}" title="נא להזין מספר טלפון ללא קידומת" required>
-      </div>
-      <div class="form-group">
-        <label for="address">כתובת למשלוח <span style="color:red">*</span></label>
-        <input type="text" id="address" name="address" required>
-      </div>
-      <div class="form-group">
-        <label for="quantity">כמות ספרים <span style="color:red">*</span></label>
-        <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+      <div class="form-group delivery-address">
+        <label for="address">כתובת למשלוח *</label>
+        <textarea id="address" name="address" required></textarea>
       </div>
       <div class="form-group">
         <label for="notes">הערות להזמנה</label>
         <textarea id="notes" name="notes"></textarea>
       </div>
-      <div class="form-group consent-row">
+      <div class="consent-row">
         <input type="checkbox" id="terms" name="terms" required>
-        <label for="terms">קראתי ואני מסכים/ה ל <span class="terms-link" onclick="openTerms(event)">תקנון האתר</span> <span style="color:red">*</span></label>
+        <label for="terms">קראתי ואני מסכים/ה ל<span class="terms-link" onclick="openTerms()">תנאי השימוש</span> *</label>
       </div>
-      <button type="submit" class="cta-button">לרכישה מאובטחת</button>
+      <button type="submit" class="cta-button">שליחת הזמנה</button>
     </form>
   </div>
   <div class="terms-popup" id="termsPopup">
@@ -290,19 +337,14 @@
       }
       return true;
     }
-    // בחירת אופציה
+    function scrollToForm() {
+      document.getElementById('orderForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
     function selectOption(type) {
-      document.getElementById('deliveryOption').classList.remove('selected');
-      document.getElementById('pickupOption').classList.remove('selected');
-      if(type === 'delivery') {
-        document.getElementById('deliveryOption').classList.add('selected');
-        document.getElementById('deliveryType').value = 'משלוח עד הבית';
-      } else {
-        document.getElementById('pickupOption').classList.add('selected');
-        document.getElementById('deliveryType').value = 'איסוף עצמי – בני דקלים';
-      }
-      // גלול לטופס
-      document.querySelector('.purchase-form-section').scrollIntoView({ behavior: 'smooth' });
+      document.querySelectorAll('.option-card').forEach(card => {
+        card.classList.remove('selected');
+      });
+      document.getElementById(type + 'Option').classList.add('selected');
     }
   </script>
 </body>
